@@ -220,8 +220,8 @@ is the final generation result of functional grasping gestures for the dexterous
           <div class="column is-one-quarter" style="display: flex; flex-direction: column; align-items: center;">
             <model-viewer
               id="modelViewer2"
-              src="static/data/3dmodel/Allegro/contactdb+apple/0.glb"
-              alt="Allegro Grasp"
+              src="static/3dmodel/inspire/0.glb"
+              alt="HnuHand Grasp"
               ar
               camera-controls
               auto-rotate
@@ -229,14 +229,14 @@ is the final generation result of functional grasping gestures for the dexterous
               interaction-prompt-threshold="2000"
               style="width: 200px; height: 200px; border: 3px solid #66c0ff; border-radius: 15px;">
             </model-viewer>
-            <p style="font-size: 20px; font-weight: bold;">Allegro</p>
+            <p style="font-size: 20px; font-weight: bold;">HnuHand</p>
           </div>
     
           <!-- Model Viewer 3 for ShadowHand -->
           <div class="column is-one-quarter" style="display: flex; flex-direction: column; align-items: center;">
             <model-viewer
               id="modelViewer3"
-              src="static/data/3dmodel/ShadowHand/contactdb+apple/0.glb"
+              src="sstatic/3dmodel/inspire/0.glb"
               alt="ShadowHand Grasp"
               ar
               camera-controls
@@ -312,9 +312,9 @@ is the final generation result of functional grasping gestures for the dexterous
 
         graspIDLabel.textContent = selectedGraspID;
 
-        modelViewer1.src = `static/3dmodel/Barrett/${selectedObject}/${selectedGraspID}.glb`;
-        // modelViewer2.src = `static/3dmodel/Allegro/${selectedObject}/${selectedGraspID}.glb`;
-        // modelViewer3.src = `static/3dmodel/ShadowHand/${selectedObject}/${selectedGraspID}.glb`;
+        modelViewer1.src = `static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb`;
+        // modelViewer2.src = `static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb`;
+        // modelViewer3.src = `static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb`;
       }
       objectNameSelect.addEventListener('change', updateModel);
       graspIDSlider.addEventListener('input', updateModel);
