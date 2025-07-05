@@ -190,6 +190,139 @@ is the final generation result of functional grasping gestures for the dexterous
     </div>
   </div>
 </section>
+    <!-- Simulation Grasps -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column">
+            <h2 class="title is-3 has-text-centered">Simulation Grasps</h2>
+          </div>
+        </div>
+
+        <div class="columns is-centered has-text-centered">
+          <!-- Model Viewer 1 for Barrett -->
+          <div class="column is-one-quarter" style="display: flex; flex-direction: column; align-items: center;">
+            <model-viewer
+              id="modelViewer1"
+              src="static/data/3dmodel/inspire/0.glb"
+              alt="Barrett Grasp"
+              ar
+              camera-controls
+              auto-rotate
+              auto-rotate-delay="1000"
+              interaction-prompt-threshold="2000"
+              style="width: 200px; height: 200px; border: 3px solid #66c0ff; border-radius: 15px;">
+            </model-viewer>
+            <p style="font-size: 20px; font-weight: bold;">Barrett</p>
+          </div>
+    
+          <!-- Model Viewer 2 for Allegro -->
+          <div class="column is-one-quarter" style="display: flex; flex-direction: column; align-items: center;">
+            <model-viewer
+              id="modelViewer2"
+              src="static/data/3dmodel/Allegro/contactdb+apple/0.glb"
+              alt="Allegro Grasp"
+              ar
+              camera-controls
+              auto-rotate
+              auto-rotate-delay="1000"
+              interaction-prompt-threshold="2000"
+              style="width: 200px; height: 200px; border: 3px solid #66c0ff; border-radius: 15px;">
+            </model-viewer>
+            <p style="font-size: 20px; font-weight: bold;">Allegro</p>
+          </div>
+    
+          <!-- Model Viewer 3 for ShadowHand -->
+          <div class="column is-one-quarter" style="display: flex; flex-direction: column; align-items: center;">
+            <model-viewer
+              id="modelViewer3"
+              src="static/data/3dmodel/ShadowHand/contactdb+apple/0.glb"
+              alt="ShadowHand Grasp"
+              ar
+              camera-controls
+              auto-rotate
+              auto-rotate-delay="1000"
+              interaction-prompt-threshold="2000"
+              style="width: 200px; height: 200px; border: 3px solid #66c0ff; border-radius: 15px;">
+            </model-viewer>
+            <p style="font-size: 20px; font-weight: bold;">ShadowHand</p>
+          </div>
+    
+          <!-- Controls for Object and Grasp ID -->
+          <div class="column is-one-quarter">
+            <!-- Object Name Dropdown -->
+            <div class="dropdown-container" style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
+              <label for="objectName" style="font-size: 20px; font-weight: bold;">Object Name</label>
+              <select id="objectName" class="custom-select" style="width: 200px; margin-top: 10px;">
+                <option value="contactdb+apple" style="font-size: 14px;">contactdb+apple</option>
+                <option value="contactdb+camera" style="font-size: 14px;">contactdb+camera</option>
+                <option value="contactdb+cylinder_medium" style="font-size: 14px;">contactdb+cylinder_medium</option>
+                <option value="contactdb+rubber_duck" style="font-size: 14px;">contactdb+rubber_duck</option>
+                <option value="contactdb+door_knob" style="font-size: 14px;">contactdb+door_knob</option>
+                <option value="contactdb+water_bottle" style="font-size: 14px;">contactdb+water_bottle</option>
+                <option value="ycb+baseball" style="font-size: 14px;">ycb+baseball</option>
+                <option value="ycb+pear" style="font-size: 14px;">ycb+pear</option>
+                <option value="ycb+potted_meat_can" style="font-size: 14px;">ycb+potted_meat_can</option>
+                <option value="ycb+tomato_soup_can" style="font-size: 14px;">ycb+tomato_soup_can</option>
+              </select>
+            </div>
+
+            <script>
+              function adjustSelectedFontSize() {
+                const selectElement = document.getElementById("objectName");
+                const selectedText = selectElement.options[selectElement.selectedIndex].text;
+                
+                const fontSize = Math.min(16, 320 / selectedText.length);
+                selectElement.style.fontSize = fontSize + "px";
+                const paddingSize = (32 - fontSize) / 2
+                selectElement.style.paddingTop = paddingSize + "px";
+                selectElement.style.paddingBottom = paddingSize + "px";
+              }
+            
+              window.onload = adjustSelectedFontSize;
+              document.getElementById("objectName").addEventListener("change", adjustSelectedFontSize);
+            </script>
+          
+            <!-- Grasp ID and Slider -->
+            <div class="slider-container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+              <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
+                Grasp ID: 
+                <span id="graspIDLabel">0</span>
+              </div>
+              <input type="range" id="graspID" name="graspID" min="0" max="9" value="0" style="width: 200px; height: 15px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const modelViewer1 = document.getElementById('modelViewer1');
+      const modelViewer2 = document.getElementById('modelViewer2');
+      const modelViewer3 = document.getElementById('modelViewer3');
+      const objectNameSelect = document.getElementById('objectName');
+      const graspIDSlider = document.getElementById('graspID');
+      const graspIDLabel = document.getElementById('graspIDLabel');
+
+      const robotNames = ["InspireHand", "HnuHand", "ShadowHand"];
+
+      function updateModel() {
+        const selectedObject = objectNameSelect.value;
+        const selectedGraspID = graspIDSlider.value;
+
+        graspIDLabel.textContent = selectedGraspID;
+
+        modelViewer1.src = `static/3dmodel/Barrett/${selectedObject}/${selectedGraspID}.glb`;
+        // modelViewer2.src = `static/3dmodel/Allegro/${selectedObject}/${selectedGraspID}.glb`;
+        // modelViewer3.src = `static/3dmodel/ShadowHand/${selectedObject}/${selectedGraspID}.glb`;
+      }
+      objectNameSelect.addEventListener('change', updateModel);
+      graspIDSlider.addEventListener('input', updateModel);
+    </script>
+    <!--/ Simulation Grasps -->
+
+
+  
 <section class="section hero is-light">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Experiments</h2>
