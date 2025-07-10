@@ -213,8 +213,8 @@ is the final generation result of functional grasping gestures for the dexterous
           </div>
         </div>
 
- <!-- 外层使用 Flex 布局，强制一行排列 -->
-<div style="display: flex; justify-content: center; gap: 40px; flex-wrap: nowrap; text-align: center;">
+<!-- 一行横向布局：3个模型 + 控件列 -->
+<div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: nowrap; text-align: center;">
 
   <!-- Model Viewer 1 -->
   <div style="display: flex; flex-direction: column; align-items: center;">
@@ -264,56 +264,50 @@ is the final generation result of functional grasping gestures for the dexterous
     <p style="font-size: 30px; font-weight: bold;">ShadowHand</p>
   </div>
 
+  <!-- 控件列 -->
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 10px;">
+    
+    <!-- Object Name Dropdown -->
+    <div class="dropdown-container" style="margin-bottom: 20px;">
+      <label for="objectName" style="font-size: 30px; font-weight: bold;">Object Name</label><br>
+      <select id="objectName" class="custom-select" style="width: 200px; margin-top: 10px;">
+        <option value="bottle" style="font-size: 14px;">bottle</option>
+        <option value="drill" style="font-size: 14px;">drill</option>
+        <option value="spraybottle" style="font-size: 14px;">spraybottle</option>
+        <option value="flashlight" style="font-size: 14px;">flashlight</option>
+        <option value="mug" style="font-size: 14px;">mug</option>
+        <option value="camera" style="font-size: 14px;">camera</option>
+        <option value="bowl" style="font-size: 14px;">bowl</option>
+      </select>
+    </div>
+
+    <!-- Grasp ID Slider -->
+    <div class="slider-container" style="display: flex; flex-direction: column; align-items: center;">
+      <div style="font-size: 30px; font-weight: bold; margin-bottom: 10px;">
+        Grasp ID: <span id="graspIDLabel">0</span>
+      </div>
+      <input type="range" id="graspID" name="graspID" min="0" max="9" value="0"
+        style="width: 200px; height: 15px;" oninput="document.getElementById('graspIDLabel').textContent = this.value;">
+    </div>
+  </div>
 </div>
 
-    
-          <!-- Controls for Object and Grasp ID -->
-          <div class="column is-one-quarter">
-            <!-- Object Name Dropdown -->
-            <div class="dropdown-container" style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
-              <label for="objectName" style="font-size: 20px; font-weight: bold;">Object Name</label>
-              <select id="objectName" class="custom-select" style="width: 200px; margin-top: 10px;">
-                <option value="bottle" style="font-size: 14px;">bottle</option>
-             <option value="drill" style="font-size: 14px;">drill</option>
-                <option value="spraybottle" style="font-size: 14px;">spraybottle</option>
-                <option value="flashlight" style="font-size: 14px;">flashlight</option>
-               <option value="mug" style="font-size: 14px;">mug</option>
-                <option value="camera" style="font-size: 14px;">camera</option>
-                <option value="bowl" style="font-size: 14px;">bowl</option>
-<!--                 <option value="ycb+pear" style="font-size: 14px;">ycb+pear</option>
-                <option value="ycb+potted_meat_can" style="font-size: 14px;">ycb+potted_meat_can</option>
-                <option value="ycb+tomato_soup_can" style="font-size: 14px;">ycb+tomato_soup_can</option>   -->
-              </select>
-            </div>
+<!-- JS 保留：自动调整字体大小 -->
+<script>
+  function adjustSelectedFontSize() {
+    const selectElement = document.getElementById("objectName");
+    const selectedText = selectElement.options[selectElement.selectedIndex].text;
 
-            <script>
-              function adjustSelectedFontSize() {
-                const selectElement = document.getElementById("objectName");
-                const selectedText = selectElement.options[selectElement.selectedIndex].text;
-                
-                const fontSize = Math.min(16, 320 / selectedText.length);
-                selectElement.style.fontSize = fontSize + "px";
-                const paddingSize = (32 - fontSize) / 2
-                selectElement.style.paddingTop = paddingSize + "px";
-                selectElement.style.paddingBottom = paddingSize + "px";
-              }
-            
-              window.onload = adjustSelectedFontSize;
-              document.getElementById("objectName").addEventListener("change", adjustSelectedFontSize);
-            </script>
-          
-            <!-- Grasp ID and Slider -->
-            <div class="slider-container" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-              <div style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">
-                Grasp ID: 
-                <span id="graspIDLabel">0</span>
-              </div>
-              <input type="range" id="graspID" name="graspID" min="0" max="9" value="0" style="width: 200px; height: 15px;">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    const fontSize = Math.min(16, 320 / selectedText.length);
+    selectElement.style.fontSize = fontSize + "px";
+    const paddingSize = (32 - fontSize) / 2;
+    selectElement.style.paddingTop = paddingSize + "px";
+    selectElement.style.paddingBottom = paddingSize + "px";
+  }
+
+  window.onload = adjustSelectedFontSize;
+  document.getElementById("objectName").addEventListener("change", adjustSelectedFontSize);
+</script>
 
     <script>
       const modelViewer1 = document.getElementById('modelViewer1');
