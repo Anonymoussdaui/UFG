@@ -217,84 +217,84 @@ is the final generation result of functional grasping gestures for the dexterous
     <div class="container is-fluid">
       <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: nowrap; text-align: center;">
        
-  <!-- Model Viewer 1 -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <model-viewer
-      id="modelViewer1"
-      src="static/3dmodel/inspire/bottle/0.glb"
-      alt="InspireHand Grasp"
-      ar
-      camera-controls
-      auto-rotate
-      auto-rotate-delay="1000"
-      interaction-prompt-threshold="2000"
-      style="width: 300px; height: 300px; border: 3px solid #66c0ff; border-radius: 15px;">
-    </model-viewer>
-    <p style="font-size: 23px; font-weight: bold;">InspireHand</p>
-  </div>
+        <!-- Model Viewer 1 -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <model-viewer
+            id="modelViewer1"
+            src="static/3dmodel/inspire/bottle/0.glb"
+            alt="InspireHand Grasp"
+            ar
+            camera-controls
+            auto-rotate
+            auto-rotate-delay="1000"
+            interaction-prompt-threshold="2000"
+            style="width: 300px; height: 300px; border: 3px solid #66c0ff; border-radius: 15px;">
+          </model-viewer>
+          <p style="font-size: 23px; font-weight: bold;">InspireHand</p>
+        </div>
 
-  <!-- Model Viewer 2 -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <model-viewer
-      id="modelViewer2"
-      src="static/3dmodel/hnu/bottle/0.glb"
-      alt="HnuHand Grasp"
-      ar
-      camera-controls
-      auto-rotate
-      auto-rotate-delay="1000"
-      interaction-prompt-threshold="2000"
-      style="width: 300px; height: 300px; border: 3px solid #66c0ff; border-radius: 15px;">
-    </model-viewer>
-    <p style="font-size: 23px; font-weight: bold;">HnuHand</p>
-  </div>
+        <!-- Model Viewer 2 -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <model-viewer
+            id="modelViewer2"
+            src="static/3dmodel/hnu/bottle/0.glb"
+            alt="HnuHand Grasp"
+            ar
+            camera-controls
+            auto-rotate
+            auto-rotate-delay="1000"
+            interaction-prompt-threshold="2000"
+            style="width: 300px; height: 300px; border: 3px solid #66c0ff; border-radius: 15px;">
+          </model-viewer>
+          <p style="font-size: 23px; font-weight: bold;">HnuHand</p>
+        </div>
 
-  <!-- Model Viewer 3 -->
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <model-viewer
-      id="modelViewer3"
-      src="static/3dmodel/shadow/bottle/0.glb"
-      alt="ShadowHand Grasp"
-      ar
-      camera-controls
-      auto-rotate
-      auto-rotate-delay="1000"
-      interaction-prompt-threshold="2000"
-      style="width: 300px; height: 300px; border: 3px solid #66c0ff; border-radius: 15px;">
-    </model-viewer>
-    <p style="font-size: 23px; font-weight: bold;">ShadowHand</p>
-  </div>
+        <!-- Model Viewer 3 -->
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <model-viewer
+            id="modelViewer3"
+            src="static/3dmodel/shadow/bottle/0.glb"
+            alt="ShadowHand Grasp"
+            ar
+            camera-controls
+            auto-rotate
+            auto-rotate-delay="1000"
+            interaction-prompt-threshold="2000"
+            style="width: 300px; height: 300px; border: 3px solid #66c0ff; border-radius: 15px;">
+          </model-viewer>
+          <p style="font-size: 23px; font-weight: bold;">ShadowHand</p>
+        </div>
 
-  <!-- 控件列 -->
-  <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 10px;">
-    
-    <!-- Object Name Dropdown -->
-    <div class="dropdown-container" style="margin-bottom: 20px;">
-      <label for="objectName" style="font-size: 23px; font-weight: bold;">Object Name</label><br>
-      <select id="objectName" class="custom-select" style="width: 200px; margin-top: 10px;">
-        <option value="bottle" style="font-size: 14px;">bottle</option>
-        <option value="drill" style="font-size: 14px;">drill</option>
-        <option value="spraybottle" style="font-size: 14px;">spraybottle</option>
-        <option value="flashlight" style="font-size: 14px;">flashlight</option>
-        <option value="mug" style="font-size: 14px;">mug</option>
-        <option value="camera" style="font-size: 14px;">camera</option>
-        <option value="bowl" style="font-size: 14px;">bowl</option>
-      </select>
-    </div>
+        <!-- 控件列 -->
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 10px;">
+          <!-- Object Name Dropdown -->
+          <div class="dropdown-container" style="margin-bottom: 20px;">
+            <label for="objectName" style="font-size: 23px; font-weight: bold;">Object Name</label><br>
+            <select id="objectName" class="custom-select" style="width: 200px; margin-top: 10px;">
+              <option value="bottle" style="font-size: 14px;">bottle</option>
+              <option value="drill" style="font-size: 14px;">drill</option>
+              <option value="spraybottle" style="font-size: 14px;">spraybottle</option>
+              <option value="flashlight" style="font-size: 14px;">flashlight</option>
+              <option value="mug" style="font-size: 14px;">mug</option>
+              <option value="camera" style="font-size: 14px;">camera</option>
+              <option value="bowl" style="font-size: 14px;">bowl</option>
+            </select>
+          </div>
 
-    <!-- Grasp ID Slider -->
-    <div class="slider-container" style="display: flex; flex-direction: column; align-items: center;">
-      <div style="font-size: 23px; font-weight: bold; margin-bottom: 10px;">
-        Grasp ID: <span id="graspIDLabel">0</span>
+          <!-- Grasp ID Slider -->
+          <div class="slider-container" style="display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 23px; font-weight: bold; margin-bottom: 10px;">
+              Grasp ID: <span id="graspIDLabel">0</span>
+            </div>
+            <input type="range" id="graspID" name="graspID" min="0" max="9" value="0"
+              style="width: 200px; height: 15px;" oninput="document.getElementById('graspIDLabel').textContent = this.value;">
+          </div>
+        </div>
       </div>
-      <input type="range" id="graspID" name="graspID" min="0" max="9" value="0"
-        style="width: 200px; height: 15px;" oninput="document.getElementById('graspIDLabel').textContent = this.value;">
     </div>
   </div>
-</div>
-</section> 
+</section>
 
-        
 <script>
   function adjustSelectedFontSize() {
     const selectElement = document.getElementById("objectName");
@@ -311,32 +311,29 @@ is the final generation result of functional grasping gestures for the dexterous
   document.getElementById("objectName").addEventListener("change", adjustSelectedFontSize);
 </script>
 
-    <script>
-      const modelViewer1 = document.getElementById('modelViewer1');
-      const modelViewer2 = document.getElementById('modelViewer2');
-      const modelViewer3 = document.getElementById('modelViewer3');
-      const objectNameSelect = document.getElementById('objectName');
-      const graspIDSlider = document.getElementById('graspID');
-      const graspIDLabel = document.getElementById('graspIDLabel');
+<script>
+  const modelViewer1 = document.getElementById('modelViewer1');
+  const modelViewer2 = document.getElementById('modelViewer2');
+  const modelViewer3 = document.getElementById('modelViewer3');
+  const objectNameSelect = document.getElementById('objectName');
+  const graspIDSlider = document.getElementById('graspID');
+  const graspIDLabel = document.getElementById('graspIDLabel');
 
-      const robotNames = ["InspireHand", "HnuHand", "ShadowHand"];
+  function updateModel() {
+    const selectedObject = objectNameSelect.value;
+    const selectedGraspID = graspIDSlider.value;
 
-      function updateModel() {
-        const selectedObject = objectNameSelect.value;
-        const selectedGraspID = graspIDSlider.value;
+    graspIDLabel.textContent = selectedGraspID;
 
-        graspIDLabel.textContent = selectedGraspID;
+    modelViewer1.src = `static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb`;
+    modelViewer2.src = `static/3dmodel/hnu/${selectedObject}/${selectedGraspID}.glb`;
+    modelViewer3.src = `static/3dmodel/shadow/${selectedObject}/${selectedGraspID}.glb`;
+  }
 
-        modelViewer1.src = static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb;
-        modelViewer2.src = static/3dmodel/hnu/${selectedObject}/${selectedGraspID}.glb;
-        modelViewer3.src = static/3dmodel/shadow/${selectedObject}/${selectedGraspID}.glb;
-      }
-      objectNameSelect.addEventListener('change', updateModel);
-      graspIDSlider.addEventListener('input', updateModel);
-    </script>
-    <!--/ Simulation Grasps -->
+  objectNameSelect.addEventListener('change', updateModel);
+  graspIDSlider.addEventListener('input', updateModel);
+</script>
 
-    <!--/ Simulation Grasps -->
 
     
 <section class="section hero is-light has-text-centered">
