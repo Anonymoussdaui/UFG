@@ -216,8 +216,8 @@ is the final generation result of functional grasping gestures for the dexterous
 <!-- 一行横向布局：3个模型 + 控件列 -->
 <section class="section">
   <div class="container is-fluid">
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: nowrap; text-align: center;">
-      
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: wrap; text-align: center;">
+
   <!-- Model Viewer 1 -->
   <div style="display: flex; flex-direction: column; align-items: center;">
     <model-viewer
@@ -291,9 +291,7 @@ is the final generation result of functional grasping gestures for the dexterous
       <input type="range" id="graspID" name="graspID" min="0" max="9" value="0"
         style="width: 200px; height: 15px;" oninput="document.getElementById('graspIDLabel').textContent = this.value;">
     </div>
-  </div>
-</div>
-</section> 
+
 
         
 <script>
@@ -335,6 +333,9 @@ is the final generation result of functional grasping gestures for the dexterous
       objectNameSelect.addEventListener('change', updateModel);
       graspIDSlider.addEventListener('input', updateModel);
     </script>
+      </div>
+</div>
+</section> 
     <!--/ Simulation Grasps -->
 
     
