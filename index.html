@@ -214,10 +214,11 @@ is the final generation result of functional grasping gestures for the dexterous
         </div>
 
 <!-- 一行横向布局：3个模型 + 控件列 -->
+<!-- 一行横向布局：3个模型 + 控件列 -->
 <section class="section">
   <div class="container is-fluid">
-    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: wrap; text-align: center;">
-
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: nowrap; text-align: center;">
+      
   <!-- Model Viewer 1 -->
   <div style="display: flex; flex-direction: column; align-items: center;">
     <model-viewer
@@ -328,13 +329,14 @@ is the final generation result of functional grasping gestures for the dexterous
 
         graspIDLabel.textContent = selectedGraspID;
 
-        modelViewer1.src = `static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb`;
-        modelViewer2.src = `static/3dmodel/hnu/${selectedObject}/${selectedGraspID}.glb`;
-        modelViewer3.src = `static/3dmodel/shadow/${selectedObject}/${selectedGraspID}.glb`;
+        modelViewer1.src = static/3dmodel/inspire/${selectedObject}/${selectedGraspID}.glb;
+        modelViewer2.src = static/3dmodel/hnu/${selectedObject}/${selectedGraspID}.glb;
+        modelViewer3.src = static/3dmodel/shadow/${selectedObject}/${selectedGraspID}.glb;
       }
       objectNameSelect.addEventListener('change', updateModel);
       graspIDSlider.addEventListener('input', updateModel);
     </script>
+    <!--/ Simulation Grasps -->
 
     <!--/ Simulation Grasps -->
 
