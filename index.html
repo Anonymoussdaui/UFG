@@ -214,8 +214,10 @@ is the final generation result of functional grasping gestures for the dexterous
         </div>
 
 <!-- 一行横向布局：3个模型 + 控件列 -->
-<div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: nowrap; text-align: center;">
-
+<section class="section">
+  <div class="container is-fluid">
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 40px; flex-wrap: nowrap; text-align: center;">
+      
   <!-- Model Viewer 1 -->
   <div style="display: flex; flex-direction: column; align-items: center;">
     <model-viewer
@@ -291,8 +293,9 @@ is the final generation result of functional grasping gestures for the dexterous
     </div>
   </div>
 </div>
+</section> 
 
-<!-- JS 保留：自动调整字体大小 -->
+        
 <script>
   function adjustSelectedFontSize() {
     const selectElement = document.getElementById("objectName");
@@ -333,6 +336,8 @@ is the final generation result of functional grasping gestures for the dexterous
       graspIDSlider.addEventListener('input', updateModel);
     </script>
     <!--/ Simulation Grasps -->
+
+    
 <section class="section hero is-light">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Experiments</h2>
@@ -358,9 +363,6 @@ is the final generation result of functional grasping gestures for the dexterous
     </div>
   </div>
 </section>
-
-
-
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
